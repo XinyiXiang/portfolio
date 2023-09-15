@@ -1,6 +1,6 @@
 ## Contact
 
-If you want to contact me you can reach me on [LinkedIn](https://www.linkedin.com/in/xinyi-xiang/).
+To contact me, you can either reach me on [LinkedIn](https://www.linkedin.com/in/xinyi-xiang/) or use the contact form on this portfolio page to send an email.
 
 ## License
 
