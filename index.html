@@ -8,6 +8,17 @@
   <title>Xinyi / Vicky Xiang</title>
 
   <!--
+    - theme: apply saved or system theme before first paint (prevents flash)
+  -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+    })();
+  </script>
+
+  <!--
     - favicon
   -->
   <link rel="shortcut icon" href="./assets/images/Profile-Photo-Question-Block.JPG" type="image/x-icon">
@@ -32,6 +43,13 @@
   -->
 
   <main>
+
+    <!--
+      - theme toggle
+    -->
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme">
+      <ion-icon name="sunny-outline"></ion-icon>
+    </button>
 
     <!--
       - #SIDEBAR
@@ -213,8 +231,7 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-design.svg" alt="design icon" width="40">
               </div>
 
               <div class="service-content-box">
@@ -357,6 +374,30 @@
           </div>
 
           <ol class="timeline-list">
+             <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"> Software Engineer @ Microsoft </h4>
+
+              <span>Feb 2026 - Present</span>
+
+              <p class="timeline-text">
+                
+              </p>
+
+            </li>
+            
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"> Software Engineer @ UPW </h4>
+
+              <span>Aug 2025 - Feb 2026</span>
+
+              <p class="timeline-text">
+                
+              </p>
+
+            </li>
+            
 
             <li class="timeline-item">
 
@@ -741,13 +782,7 @@
         </header>
         <section class="mapbox" data-mapbox>
           <figure>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.1012188500463!2d-97.72106252421703!3d30.404869974744148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644cda7d45961bf%3A0x5c22d152c79164f8!2sAmazon%20(AUS16)!5e0!3m2!1sen!2sus!4v1728882625330!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    width="400"
-                    height="300"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps?q=Microsoft+Corporation,+10900+Stonelake+Blvd,+Austin,+TX+78759&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </figure>
         </section>
 
@@ -786,6 +821,29 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+
+  <!--
+    - theme toggle logic
+  -->
+  <script>
+    (function () {
+      var themeToggle = document.querySelector('[data-theme-toggle]');
+      var themeIcon = themeToggle.querySelector('ion-icon');
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeIcon.setAttribute('name', theme === 'dark' ? 'sunny-outline' : 'moon-outline');
+      }
+
+      applyTheme(document.documentElement.getAttribute('data-theme'));
+
+      themeToggle.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
 
   <!--
     - ionicon link
