@@ -3,16 +3,6 @@
 \*-----------------------------------*/
 
 
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
 
   /**
@@ -1877,4 +1867,37 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  background: var(--eerie-black-2);
+  color: var(--orange-yellow-crayola);
+  border: 1px solid var(--jet);
+}
+
+:root[data-theme="light"] {
+  --smoky-black: hsl(0, 0%, 95%);
+  --eerie-black-1: hsl(0, 0%, 100%);
+  --eerie-black-2: hsl(0, 0%, 98%);
+  --onyx: hsl(0, 0%, 90%);
+  --jet: hsl(0, 0%, 85%);
+  --white-1: hsl(0, 0%, 8%);
+  --white-2: hsl(0, 0%, 14%);
+  --light-gray: hsl(0, 0%, 35%);
+  --light-gray-70: hsla(0, 0%, 35%, 0.8);
+
+  --bg-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 96%) 3%, hsl(0, 0%, 100%) 97%);
+  --bg-gradient-jet: linear-gradient(to bottom right, hsla(0, 0%, 90%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), hsl(0, 0%, 98%);
+  --border-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 80%) 0%, hsla(0, 0%, 80%, 0) 50%);
 }
