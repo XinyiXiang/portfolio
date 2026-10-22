@@ -157,3 +157,19 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+const themeToggle = document.querySelector('[data-theme-toggle]');
+const themeIcon = themeToggle.querySelector('ion-icon');
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  themeIcon.setAttribute('name', theme === 'dark' ? 'sunny-outline' : 'moon-outline');
+}
+
+applyTheme(document.documentElement.getAttribute('data-theme'));
+
+themeToggle.addEventListener('click', function () {
+  var current = document.documentElement.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
